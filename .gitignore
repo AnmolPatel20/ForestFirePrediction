@@ -1,0 +1,26 @@
+
+# Allow only these file types
+!*.py
+!*.html
+!*.css
+!*.pkl
+!*.txt
+
+# Ignore typical Python junk
+_pycache_/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+venv/
+.env/
+*.env
+
+# Ignore IDE/editor configs
+.vscode/
+.idea/
+
+# Ignore system files
+.DS_Store
+Thumbs.db

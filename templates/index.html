@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wildfire Risk Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="overlay">
+    <h1>🔥 Wildfire Risk Prediction</h1>
+    <form method="POST">
+      <label>🌡️ Temperature (°C) (Range: 22 to 42)</label>
+      <input type="number" step="0.1" name="temp" required value="{{ values.temp if values else '' }}">
+
+      <label>💧 Relative Humidity (%) (Range: 21 to 90)</label>
+      <input type="number" step="0.1" name="rh" required value="{{ values.rh if values else '' }}">
+
+      <label>🌬️ Wind Speed (km/h) (Range: 6 to 29)</label>
+      <input type="number" step="0.1" name="wind" required value="{{ values.wind if values else '' }}">
+
+      <label>🌧️ Rain (mm) (Range: 0 to 16.8)</label>
+      <input type="number" step="0.1" name="rain" required value="{{ values.rain if values else '' }}">
+
+      <label>🔥 Fine Fuel Moisture Code (FFMC) (Range: 28.6 to 92.5)</label>
+      <input type="number" step="0.1" name="ffmc" required value="{{ values.ffmc if values else '' }}">
+
+      <label>🌲 Duff Moisture Code (DMC) (Range: 1.1 to 65.9)</label>
+      <input type="number" step="0.1" name="dmc" required value="{{ values.dmc if values else '' }}">
+
+      <label>🌵 Drought Code (DC) (Range: 7 to 220.4)</label>
+      <input type="number" step="0.1" name="dc" required value="{{ values.dc if values else '' }}">
+
+      <label>💨 Initial Spread Index (ISI) (Range: 0 to 18.5)</label>
+      <input type="number" step="0.1" name="isi" required value="{{ values.isi if values else '' }}">
+
+      <label>🪵 Buildup Index (BUI) (Range: 1.1 to 68)</label>
+      <input type="number" step="0.1" name="bui" required value="{{ values.bui if values else '' }}">
+
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is not none %}
+      <div class="result">
+        <h2>Prediction: {{ prediction }}</h2>
+      </div>
+    {% endif %}
+  </div>
+
+</body>
+</html>
